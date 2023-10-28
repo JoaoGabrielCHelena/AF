@@ -1,0 +1,234 @@
+:root
+    --primary: #279881
+    --secondary: #E6E6E6
+    //default text colour if background is white
+    --text: #4E4E4E 
+    --title-color: #279881
+    scroll-behavior: smooth
+
+
+*
+    box-sizing: border-box
+
+// utils
+
+.bg-primary
+    --text: white
+    background: var(--primary)
+    color: var(--text)
+    .title
+        color: var(--text)
+
+.bg-secondary
+    --text: #737373
+    background: var(--secondary)
+    color: var(--text)
+
+.title
+    color: var(--primary)
+    font-size: 55px
+
+.f30
+    font-size: 30px
+
+.f40
+    font-size: 40px
+
+.f55
+    font-size: 55px
+
+.clr-white
+    color: white
+
+.txt-center
+    text-align: center
+
+.grid
+    padding: 0 var(--page-padding)
+    display: grid
+    gap: var(--grid-gap)
+    grid-template-columns: repeat(12, 1fr) 
+    grid-auto-rows: auto
+
+@for $i from 1 through 12  
+    .span-#{$i}
+        grid-column: 1 / span #{$i}
+
+@for $i from 1 through 12  
+    .grid-start-#{$i}
+        grid-column-start: #{$i}
+
+// styling
+body
+    --page-padding: min(168px, 12vw)
+    --grid-gap: clamp(4px, 2vw, 24px)
+    font-family: 'Oxygen', sans-serif
+    color: var(--text)
+    margin: 0
+
+
+h1
+    font-size: 96px
+    color: white
+    font-family: 'Passion One', sans-serif
+    text-align: center
+    margin: 0
+    span
+        display: block
+
+header section
+    display: grid
+    place-content: center
+    background: url('../assets/images/hero-bg.png') no-repeat
+    min-height: 520px
+
+.navhead
+    background: #F2F2F2
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 10px var(--page-padding)
+    svg:hover
+        fill: var(--primary)   
+    div
+        display: flex
+        gap: 40px
+        align-items: center
+        a
+            text-decoration: none
+            display: inline-block
+            height: fit-content
+            width: fit-content
+
+.logo
+    display: flex
+    gap: 10px
+    align-items: center
+    font-size: 24px
+    color: var(--primary)
+    text-decoration: none
+    span
+        display: block
+    p
+        height: min-content
+        margin: 1.5rem 0 0 0
+        
+.navbar
+    position: sticky
+    top: 0
+    padding: 10px var(--page-padding)
+    display: flex
+    justify-content: space-between
+    font-size: 30px
+    a
+        text-decoration: none
+        color: var(--primary)
+        &:hover
+            text-decoration: underline
+            
+
+
+main section:not(:first-child)
+    margin-top: 80px
+
+#intro
+    h2
+        margin: 50px 0 10px 0
+    p
+        margin: 0
+
+#servicos
+    .grid
+        padding-top: 60px
+        padding-bottom: 60px
+    p
+        margin-bottom: 12px
+    p:not(.title)
+        font-size: 24px
+        margin: 0
+    
+#sobre
+    .grid
+        gap: 0 var(--grid-gap)
+        padding-top: 60px
+        padding-bottom: 60px
+    h3, p
+        margin: 0
+    h3
+        margin-top: .5rem
+
+#contato
+    input, textarea
+        --input-height: 50px
+        display: block
+        width: 100%
+        min-height: var(--input-height)
+        padding: 13px
+        font-size: 20px
+        border: none
+        margin-bottom: 30px
+    .mensagem
+        min-height: calc( var(--input-height) * 3  )
+        font-family: inherit
+
+    [type="submit"]
+        width: 50%
+        border-radius: 9px
+        background: var(--secondary)
+        color: var(--primary)
+        border: 2px solid var(--secondary)
+        &:hover
+            cursor: pointer
+            background: var(--primary)
+            border: 2px solid white
+            color: white
+
+@-webkit-keyframes glow 
+  50%
+    text-shadow: 0 0 20px #fff, 0 0 30px var(--text), 0 0 40px var(--text), 0 0 50px var(--text), 0 0 60px var(--text)
+
+
+footer
+    display: grid
+    justify-content: space-between
+    grid-template-columns: max-content max-content
+    grid-template-rows: repeat(2, auto)
+    row-gap: 10px
+    padding: 10px var(--page-padding) 20px
+    div
+        display: grid
+        grid-template-rows: subgrid
+        grid-row: span 2
+        align-items: center
+        &:target p 
+            animation: glow 2s ease-in-out
+            animation-delay: 800ms
+
+    .contatos
+        display: grid
+        grid-template-columns: min-content max-content
+        div
+            display: grid
+            grid-column: span 2
+            grid-template-columns: subgrid
+            gap: 10px
+            svg
+                margin: auto
+    p
+        margin: 0
+        font-size: 24px
+
+    #email svg:hover
+        fill: var(--primary)
+
+    & > div:first-child
+        color: var(--primary)
+        span
+            font-family: Helvetica, sans-serif
+            font-size: 26px
+            vertical-align: middle
+
+section:target, div:target
+    & > .title
+        animation: glow 1s ease-in-out
+        animation-delay: 800ms
