@@ -28,6 +28,7 @@
 .title {
   color: var(--primary);
   font-size: 55px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .f30 {
@@ -269,6 +270,11 @@ main section:not(:first-child) {
   margin-top: 0.5rem;
 }
 
+#contato form {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
 #contato input, #contato textarea {
   --input-height: 50px;
   display: block;
@@ -277,7 +283,6 @@ main section:not(:first-child) {
   padding: 13px;
   font-size: 20px;
   border: none;
-  margin-bottom: 30px;
 }
 #contato .mensagem {
   min-height: calc(var(--input-height) * 3);
@@ -295,6 +300,15 @@ main section:not(:first-child) {
   background: var(--primary);
   border: 2px solid white;
   color: white;
+}
+
+.double.grid {
+  padding-bottom: 45px;
+}
+.double.grid > * {
+  grid-row: span 2;
+  display: grid;
+  grid-template-rows: subgrid;
 }
 
 @-webkit-keyframes glow {
@@ -352,4 +366,102 @@ footer > div:first-child span {
 section:target > .title, div:target > .title {
   animation: glow 1s ease-in-out;
   animation-delay: 800ms;
+}
+
+.carousel {
+  position: relative;
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-item {
+  position: relative;
+  display: none;
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  backface-visibility: hidden;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.carousel-fade .carousel-item {
+  opacity: 0;
+}
+.carousel-fade .carousel-item-next.carousel-item-start, .carousel-fade .carousel-item-prevcarousel-item-end, .carousel-fade .carousel-item.active {
+  z-index: 1;
+  opacity: 1;
+}
+.carousel-fade .active.carousel-item-start, .carousel-fade .active.carousel-item-end {
+  z-index: 0;
+  opacity: 0;
+}
+
+.carousel-item, .carousel-item-next, .carousel-item-prev {
+  display: block;
+}
+
+.visually-hidden {
+  visibility: hidden;
+  position: absolute;
+}
+
+.carousel-control-prev {
+  left: 0;
+  rotate: 180deg;
+}
+
+.carousel-control-next {
+  right: 0;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  top: 50px;
+  transform-origin: center;
+  z-index: 2;
+  cursor: pointer;
+  fill: var(--secondary);
+  transition: 100ms;
+  height: max-content;
+  width: min-content;
+}
+.carousel-control-prev span, .carousel-control-next span {
+  height: min-content;
+  display: inline-block;
+}
+.carousel-control-prev:hover, .carousel-control-next:hover {
+  fill: white;
+}
+.carousel-control-prev:active, .carousel-control-next:active {
+  scale: 90%;
+}
+
+.carousel-header {
+  height: 150px;
+  width: 200px;
+  background: #247766;
+  color: white;
+  margin: auto;
+  margin-bottom: 1rem;
+  padding: 13px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.carousel-content {
+  width: 100%;
+  background: white;
+  color: #4E4E4E;
+  height: 250px;
+  padding: 13px;
+  font-size: 24px;
 }/*# sourceMappingURL=main.css.map */
