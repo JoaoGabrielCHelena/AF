@@ -55,9 +55,7 @@
             </div>
         </nav>
         <section>
-            <h1>
-                <span>AGRICULTURE FINANCIAL</span> SERVICES
-            </h1>
+            <h1></h1>
         </section>
     </header>
     <main>
@@ -165,11 +163,16 @@
             </div>
             <div id="contato" class="span-6 grid-start-7">
                 <h2 class="title txt-center">Contato</h2>
-                <form action="">
-                    <input type="text" placeholder="Seu nome*" name="nome">
-                    <input type="text" placeholder="Seu e-mail*" name="email">
-                    <textarea class="mensagem" type="text" placeholder="Sua mensagem*" name="mensagem"></textarea>
+                <form action="https://formsubmit.co/4ce5dd6d7ad4bb81e0db574efc526804" method="POST">
+                    <input required type="text" placeholder="Seu nome*" name="nome">
+                    <input required type="text" placeholder="Seu e-mail*" name="email">
+                    <textarea required class="mensagem" type="text" placeholder="Sua mensagem*" name="mensagem"></textarea>
+                    <input type="hidden" name="_next" value="">
                     <input type="submit" value="Enviar">
+                    <p id="submit" class="f30">enviado!</p>
+                    <input type="hidden" name="_subject" value="Novo Contato!">
+                    <input type="text" name="_honey" style="display:none">
+                    <input type="hidden" name="_captcha" value="false">
                 </form>
             </div>
         </section>

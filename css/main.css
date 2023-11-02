@@ -212,7 +212,9 @@ header section {
 .navhead div a {
   text-decoration: none;
   display: inline-block;
+  height: -moz-fit-content;
   height: fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -228,6 +230,7 @@ header section {
   display: block;
 }
 .logo p {
+  height: -moz-min-content;
   height: min-content;
   margin: 1.5rem 0 0 0;
 }
@@ -358,6 +361,7 @@ footer .logo div {
 }
 footer .contatos {
   display: flex;
+  width: -moz-max-content;
   width: max-content;
   gap: 30px;
 }
@@ -458,10 +462,13 @@ section:target > .title, div:target > .title {
   cursor: pointer;
   fill: var(--secondary);
   transition: 100ms;
+  height: -moz-max-content;
   height: max-content;
+  width: -moz-min-content;
   width: min-content;
 }
 .carousel-control-prev span, .carousel-control-next span {
+  height: -moz-min-content;
   height: min-content;
   display: inline-block;
 }
@@ -493,4 +500,23 @@ section:target > .title, div:target > .title {
   height: 250px;
   padding: 13px;
   font-size: 18px;
+}
+
+#input:target {
+  animation: glow 1s ease-in-out;
+  animation-delay: 800ms;
+}
+
+form {
+  position: relative;
+}
+form p {
+  position: absolute;
+  left: 55%;
+  bottom: 10px;
+  margin: 0;
+  display: none;
+}
+form p:target {
+  display: block;
 }/*# sourceMappingURL=main.css.map */

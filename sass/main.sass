@@ -366,3 +366,19 @@ section:target, div:target
     height: 250px
     padding: 13px
     font-size: 18px
+
+#input:target
+    animation: glow 1s ease-in-out
+    animation-delay: 800ms
+
+form
+    position: relative 
+    p
+        position: absolute
+        left: 55%
+        bottom: 10px
+        margin: 0
+        display: none
+        &:target
+            display: block
+
